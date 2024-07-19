@@ -13,6 +13,16 @@
         android:theme="@style/Theme.DLPHsv"
         tools:targetApi="31">
         <activity
+            android:name=".Horario"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarExpediente"
+            android:exported="false" />
+        <activity
+            android:name=".Expediente"
+            android:exported="false" />
+        <activity
+            android:name=".Perfil"
             android:name=".Iniciar_sesion"
             android:exported="false" />
         <activity
