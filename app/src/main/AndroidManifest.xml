@@ -23,6 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".Perfil"
+            android:name=".Iniciar_sesion"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
