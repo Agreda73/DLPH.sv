@@ -1,5 +1,6 @@
 package roberto.agreda.dlphsv
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.PerformanceHintManager
 import android.se.omapi.Session
@@ -33,14 +34,6 @@ class activity_recuperarContrasena : AppCompatActivity() {
         val btnEnviar = findViewById<Button>(R.id.btnEnviar)
         val txtCorreoRe = findViewById<EditText>(R.id.txtCorreoRe)
 
-
-        btnEnviar.setOnClickListener {
-            CoroutineScope(Dispatchers.Main).launch {
-                val codigoRecu = (100000..999999).random()
-                enviarCorreo ( "dlphcontac@gmail.com, Recuperación de contraseña", "Recuperacion", "Su código de recuperación es: $codigoRecu")
-            }
-        }
-
         btnEnviar.setOnClickListener {
             val correo = txtCorreoRe.text.toString()
             var hayError = false
@@ -53,9 +46,9 @@ class activity_recuperarContrasena : AppCompatActivity() {
             CoroutineScope(Dispatchers.Main).launch {
                 val codigoRecu = (100000..999999).random()
                 enviarCorreo(txtCorreoRe.text.toString(), "Recuperación de contraseña", "Su código de recuperación es: $codigoRecu")
+
+
             }
-
-
         }
     }
 }

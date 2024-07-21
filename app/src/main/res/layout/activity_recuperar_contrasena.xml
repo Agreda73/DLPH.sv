@@ -11,14 +11,15 @@
         android:id="@+id/txtrecu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/lily"
         android:text="Recuperación de contraseña "
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.047" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -31,76 +32,61 @@
         app:layout_constraintVertical_bias="0.157"
         app:srcCompat="@drawable/recu" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="376dp"
-        android:layout_height="83dp"
-        android:background="#CCAFFF"
-        android:backgroundTint="#D271CAF2"
-        android:orientation="vertical"
+    <ImageView
+        android:id="@+id/imageView12"
+        android:layout_width="359dp"
+        android:layout_height="97dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/textView18"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Crea una nueva contraseña"
-            android:textAlignment="center"
-            android:textColor="#090909"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Por favor ingrese su dirección de correo electrónico  para recuperar su contraseña olvidada"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cardrecu" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/textView18"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lily"
+        android:text="Crea una nueva contraseña"
+        android:textAlignment="center"
+        android:textColor="#090909"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.464" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="342dp"
+        android:layout_height="38dp"
+        android:fontFamily="@font/lily"
+        android:text="Por favor ingrese su dirección de correo electrónico  para recuperar su contraseña olvidada"
+        android:textAlignment="center"
+        android:textColor="#CD000000"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.528" />
+
+    <TextView
+        android:id="@+id/txtcorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/lily"
         android:text="Correo Electronico"
         android:textColor="#050505"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="353dp"
-        android:layout_height="49dp"
-        android:background="#D2DAFF"
-        android:backgroundTint="#C5CEF8"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.678">
-
-        <EditText
-            android:id="@+id/txtCorreoRe"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:backgroundTint="#161515"
-            android:drawableTint="#D2DAFF"
-            android:ems="10"
-            android:hint="Escribe tu Correo Electronico"
-            android:inputType="text" />
-    </LinearLayout>
+        app:layout_constraintVertical_bias="0.624" />
 
     <Button
         android:id="@+id/btnEnviar"
@@ -115,5 +101,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.834" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="375dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.688"
+        app:srcCompat="@drawable/cardtexto" />
+
+    <EditText
+        android:id="@+id/txtCorreoRe"
+        android:layout_width="367dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#161515"
+        android:drawableTint="#D2DAFF"
+        android:ems="10"
+        android:hint="Escribe tu Correo Electronico"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.318"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.689" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
