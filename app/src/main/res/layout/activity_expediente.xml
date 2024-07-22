@@ -7,60 +7,92 @@
     android:layout_height="match_parent"
     tools:context=".Expediente">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="50dp"
-        android:layout_height="44dp"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="28dp"
-        tools:srcCompat="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/lily"
         android:text="Expediente"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="40dp" />
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055" />
 
-    <EditText
-        android:id="@+id/txtnombreExp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Ingrese el nombre del paciente"
-        android:inputType="text"
-        tools:layout_editor_absoluteX="87dp"
-        tools:layout_editor_absoluteY="121dp" />
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="317dp"
+        android:layout_height="41dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.165">
+
+        <EditText
+            android:id="@+id/txtnombreExp"
+            android:layout_width="274dp"
+            android:layout_height="48dp"
+            android:ems="10"
+            android:hint="Ingrese el nombre del paciente"
+            android:inputType="text" />
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="42dp"
+            android:layout_height="42dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="33dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056"
+        app:srcCompat="@drawable/round_menu_24" />
 
     <Button
-        android:id="@+id/btnagregarExp"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Agregar"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="212dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.284" />
 
     <Button
-        android:id="@+id/btnEditarExp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/button3"
+        android:layout_width="106dp"
+        android:layout_height="48dp"
         android:text="Editar"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="212dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.728"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.288" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvExpediente"
-        android:layout_width="409dp"
-        android:layout_height="469dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="261dp" />
-
-    <SearchView
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        tools:layout_editor_absoluteX="297dp"
-        tools:layout_editor_absoluteY="124dp" />
+        android:id="@+id/recyclerView"
+        android:layout_width="419dp"
+        android:layout_height="463dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
