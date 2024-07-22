@@ -2,22 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
 
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"
-        tools:ignore="SelectedPhotoAccess"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.READ_MEDIA_IMAGES"
+        tools:ignore="SelectedPhotoAccess" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-
-
 
     <application
         android:allowBackup="true"
@@ -29,6 +28,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DLPHsv"
         tools:targetApi="31">
+        <activity
+            android:name=".ConfiguracionDeSistema"
+            android:exported="false" />
+        <activity
+            android:name=".HabitacionesVista"
+            android:exported="false" />
+        <activity
+            android:name=".Receta"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarInventario"
+            android:exported="false" />
+        <activity
+            android:name=".AgregarCitas"
+            android:exported="false" />
+        <activity
+            android:name=".InventarioMedicamento"
+            android:exported="false" />
+        <activity
+            android:name=".Citas"
+            android:exported="false" />
+        <activity
+            android:name=".ConsultaMedica"
+            android:exported="false" />
+        <activity
+            android:name=".editarExpediente"
+            android:exported="false" />
+        <activity
+            android:name=".habitaciones"
+            android:exported="false" />
         <activity
             android:name=".activity_recuperarContrasena"
             android:exported="false" />
