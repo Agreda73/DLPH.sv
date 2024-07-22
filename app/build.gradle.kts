@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation ("com.google.android.material:material:1.8.0")
     implementation(files("libs\\activation.jar"))
     implementation(files("libs\\additionnal.jar"))
     implementation(files("libs\\mail.jar"))
