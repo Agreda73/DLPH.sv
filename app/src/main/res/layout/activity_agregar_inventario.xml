@@ -8,7 +8,7 @@
     tools:context=".AgregarInventario">
 
     <ImageView
-        android:id="@+id/imageView45"
+        android:id="@+id/imgmenuIn"
         android:layout_width="32dp"
         android:layout_height="29dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -114,27 +114,27 @@
         app:srcCompat="@drawable/cardtexto" />
 
     <Spinner
-        android:id="@+id/spinner9"
+        android:id="@+id/spnCantidadMedi"
         android:layout_width="355dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.797" />
+        app:layout_constraintVertical_bias="0.8" />
+
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btnAgregarMedi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="Agregar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.938" />
+        app:layout_constraintVertical_bias="0.96" />
 
     <TextView
         android:id="@+id/textView44"
@@ -152,7 +152,7 @@
         app:layout_constraintVertical_bias="0.722" />
 
     <EditText
-        android:id="@+id/editTextText8"
+        android:id="@+id/txtMarcaMedi"
         android:layout_width="348dp"
         android:layout_height="49dp"
         android:ems="10"
@@ -166,7 +166,7 @@
         app:layout_constraintVertical_bias="0.655" />
 
     <ImageView
-        android:id="@+id/imageView49"
+        android:id="@+id/imgMedi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -178,7 +178,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btnSubirFotoMedi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Subir Foto"
@@ -190,7 +190,7 @@
         app:layout_constraintVertical_bias="0.352" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btnTomarFotoMedi"
         android:layout_width="133dp"
         android:layout_height="51dp"
         android:text="Tomar Foto"
@@ -200,5 +200,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.354" />
+
+    <EditText
+        android:id="@+id/txtNombreMedi"
+        android:layout_width="344dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="Escribe el nombre del medicamento"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <TextView
+        android:id="@+id/txtSpinnerError"
+        android:layout_width="350dp"
+        android:layout_height="35dp"
+        android:textColor="#FF0000"
+        android:visibility="gone"
+        android:text="La cantidad es obligatoria"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.859" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
