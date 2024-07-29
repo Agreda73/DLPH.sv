@@ -155,7 +155,7 @@
         app:layout_constraintVertical_bias="0.479" />
 
     <EditText
-        android:id="@+id/txtDiagnosticoExpediente"
+        android:id="@+id/txtDiagnostiAe"
         android:layout_width="315dp"
         android:layout_height="48dp"
         android:ems="10"
@@ -222,7 +222,7 @@
         app:srcCompat="@drawable/round_menu_24" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spCategoriaAe"
         android:layout_width="304dp"
         android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -233,7 +233,7 @@
         app:layout_constraintVertical_bias="0.556" />
 
     <Spinner
-        android:id="@+id/spinner5"
+        android:id="@+id/sphabitacionAE"
         android:layout_width="299dp"
         android:layout_height="49dp"
         app:layout_constraintBottom_toBottomOf="parent"
