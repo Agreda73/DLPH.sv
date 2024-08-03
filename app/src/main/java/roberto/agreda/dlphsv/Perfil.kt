@@ -212,7 +212,7 @@ class Perfil : AppCompatActivity() {
                 val objConexion = ClaseConexion().cadenaConexion()
                 val statement = objConexion?.prepareStatement("INSERT INTO Perfil (UUID, nombre, rol, FOTO_PERFIL, id_perfil, Sexo) VALUES (?, ?, ?, ?, ?, ? )")!!
                 statement.setString(1, uuid)
-                statement.setString(2, imgView)
+                //statement.setString(2, imgView)
                 statement.executeUpdate()
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@Perfil, "Datos guardados", Toast.LENGTH_SHORT).show()
