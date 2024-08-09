@@ -17,11 +17,13 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imgMedicamento"
-            android:layout_width="203dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgmedi"
+            android:layout_width="114dp"
+            android:layout_height="117dp"
+            app:shapeAppearanceOverlay="@style/imgRound"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="10dp"
             tools:srcCompat="@tools:sample/avatars" />
 
         <LinearLayout
