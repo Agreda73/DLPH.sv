@@ -165,16 +165,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.655" />
 
-    <ImageView
-        android:id="@+id/imgMedi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgmedi"
+        android:layout_width="114dp"
+        android:layout_height="117dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.474"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.164"
+        app:layout_constraintVertical_bias="0.172"
+        app:shapeAppearanceOverlay="@style/imgRound"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
@@ -219,9 +220,9 @@
         android:id="@+id/txtSpinnerError"
         android:layout_width="350dp"
         android:layout_height="35dp"
-        android:textColor="#FF0000"
-        android:visibility="gone"
         android:text="La cantidad es obligatoria"
+        android:textColor="#E01C1C"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.568"
