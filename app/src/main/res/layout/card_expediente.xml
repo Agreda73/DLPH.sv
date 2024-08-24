@@ -10,7 +10,7 @@
     app:cardElevation="5dp"
     app:cardUseCompatPadding="true"
     app:contentPadding="10dp"
-    tools:context=".MedicamentoCard">
+    tools:context=".Expediente">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,39 +32,15 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="316dp"
+            <TextView
+                android:id="@+id/txtNameEx"
+                android:layout_width="172dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txtNameEx"
-                    android:layout_width="172dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Nombre"
-                    android:textAlignment="center"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtMarcam"
-                    android:layout_width="171dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Marca"
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/txtCantidadMedi"
-                    android:layout_width="172dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cantidad"
-                    android:textAlignment="center" />
-
-            </LinearLayout>
+                android:text="Nombre"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/img_borrar"
@@ -79,6 +55,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
                 app:srcCompat="@drawable/edit" />
+
         </LinearLayout>
 
     </LinearLayout>

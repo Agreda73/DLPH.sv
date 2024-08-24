@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import roberto.agreda.dlphsv.R
 
 class ViewHolderMedi(view: View) : RecyclerView.ViewHolder(view) {
-    val txtNombreMedi = view.findViewById<TextView>(R.id.txtNamem)
+    val txtNombreMedi = view.findViewById<TextView>(R.id.txtNameEx)
     val txtMarcaMedi = view.findViewById<TextView>(R.id.txtMarcam)
     val txtCantidadMedi = view.findViewById<TextView>(R.id.txtCantidadMedi)
     val imgBorrar = view.findViewById<ImageView>(R.id.img_borrar)
