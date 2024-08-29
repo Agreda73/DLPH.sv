@@ -22,13 +22,13 @@ class Receta : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_receta)
 
-       // txtNombrepR = findViewById(R.id.txtNombrepR)
-        //txtTratamientoR = findViewById(R.id.txtTratamientoR)
-        //spHabitacionR = findViewById(R.id.spHabitacionR)
-       // txtidPacienteR = findViewById(R.id.txtidPacienteR)
-       // btnGuardarR = findViewById(R.id.btnGuardarR)
+        txtNombrepR = findViewById(R.id.txtNombrepR)
+        txtTratamientoR = findViewById(R.id.txtTratamientoR)
+        spHabitacionR = findViewById(R.id.spHabitacionR)
+        txtidPacienteR = findViewById(R.id.txtidPacienteR)
+        btnGuardarR = findViewById(R.id.btnGuardarR)
 
         btnGuardarR.setOnClickListener {
             val nombreR = txtNombrepR.text.toString()
