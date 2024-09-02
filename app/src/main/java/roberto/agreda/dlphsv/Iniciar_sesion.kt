@@ -1,12 +1,27 @@
 package roberto.agreda.dlphsv
 
+import Modelos.ClaseConexion
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
+@OptIn(DelicateCoroutinesApi::class)
 class Iniciar_sesion : AppCompatActivity() {
+
+    companion object variablesLogin {
+        lateinit var valorRolUsuario: String
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -15,6 +30,74 @@ class Iniciar_sesion : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+        val txtCorreo = findViewById<EditText>(R.id.txtCorreo)
+        val txtContra = findViewById<EditText>(R.id.txtContra)
+        val btnIniciar = findViewById<Button>(R.id.btnIniciarSesion)
+        val menu = Intent(this, Menu::class.java)
+        val btnRecuperarContra= findViewById<Button>(R.id.btnOlvidarContra)
+        val recuperarContra =Intent(this,activity_recuperarContrasena::class.java)
+
+        fun traerID(): String? {
+            var uuidRol: String? = null
+            val objConexion = ClaseConexion().cadenaConexion()
+            val statement = objConexion?.createStatement()
+            val resulSet =
+                statement?.executeQuery("SELECT ID_rol FROM rol WHERE nombre_rol = 'admin'")!!
+
+            if (resulSet.next()) {
+                uuidRol = resulSet.getString("ID_rol")
+            }
+            return uuidRol
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+            val txtcorreoiniciarval = i.variablesLogin.valorRolUsuario
+            val RolUsuarioMainActivity = traerID()
+            withContext(Dispatchers.Main) {
+                if (txtcorreoiniciarval == RolUsuarioMainActivity) {
+                    binding..visibility = View.VISIBLE
+                    binding.btnDos.visibility = View.VISIBLE
+                } else {
+                    binding.btnUno.visibility = View.GONE
+                    binding.btnDos.visibility = View.GONE
+                }
+            }
+        }
+
+        btnIniciar.setOnClickListener {
+            val correo = txtCorreo.text.toString()
+            val contrasena = txtContra.text.toString()
+
+            if(correo.isEmpty()) {
+                txtCorreo.error = "El correo es obligatorio"
+            } else {
+                txtCorreo.error = null
+            }
+
+            if(contrasena.isEmpty()) {
+                txtContra.error = "la contraseña es obligatoria"
+            } else {
+                txtContra.error = null
+            }
+
+            GlobalScope.launch(Dispatchers.IO){
+                val objConexion = ClaseConexion().cadenaConexion()
+                val comprobarUsuario =
+                    objConexion?.prepareStatement("Select * from Usuario where nombre =? and contrasenaUsuario= ?")!!
+                comprobarUsuario.setString(1, txtCorreo.text.toString())
+                comprobarUsuario.setString(2, txtContra.text.toString())
+                val resultado = comprobarUsuario.executeQuery()
+
+                if (resultado.next()) {
+                    valorRolUsuario = resultado.getString("rol")
+                    startActivity(menu)
+                } else {
+                    println("credenciales incorrectas")
+                }
+            }
+        }
+        btnRecuperarContra.setOnClickListener{
+            startActivity(recuperarContra)
         }
     }
 }
