@@ -10,7 +10,7 @@
     app:cardElevation="5dp"
     app:cardUseCompatPadding="true"
     app:contentPadding="10dp"
-    tools:context=".MedicamentoCard">
+    tools:context=".Expediente">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,9 +18,9 @@
         android:orientation="horizontal">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imgmedi"
-            android:layout_width="114dp"
-            android:layout_height="117dp"
+            android:id="@+id/imgExp"
+            android:layout_width="117dp"
+            android:layout_height="match_parent"
             app:shapeAppearanceOverlay="@style/imgRound"
             tools:layout_editor_absoluteX="10dp"
             tools:layout_editor_absoluteY="10dp"
@@ -33,14 +33,14 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="316dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtNamem"
-                    android:layout_width="172dp"
+                    android:id="@+id/txtnombreH"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Nombre"
@@ -49,22 +49,29 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtMarcam"
-                    android:layout_width="171dp"
+                    android:id="@+id/txtCategoriaExp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Marca"
+                    android:text="Categoria"
                     android:textAlignment="center" />
 
                 <TextView
-                    android:id="@+id/txtCantidadMedi"
-                    android:layout_width="172dp"
+                    android:id="@+id/txthabitacion"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Cantidad"
+                    android:text="Habitacion"
                     android:textAlignment="center" />
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/img_editarH"
+                android:layout_width="61dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                app:srcCompat="@drawable/edit" />
 
             <ImageView
                 android:id="@+id/img_borrarH"
@@ -73,12 +80,6 @@
                 android:layout_weight="0.1"
                 app:srcCompat="@drawable/delete" />
 
-            <ImageView
-                android:id="@+id/img_editarH"
-                android:layout_width="61dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/edit" />
         </LinearLayout>
 
     </LinearLayout>

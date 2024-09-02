@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.042" />
 
     <ImageView
-        android:id="@+id/imageView25"
+        android:id="@+id/imgmenuHab"
         android:layout_width="38dp"
         android:layout_height="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +53,7 @@
         android:id="@+id/imageView36"
         android:layout_width="389dp"
         android:layout_height="333dp"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView2"
+        app:layout_constraintBottom_toBottomOf="@+id/rcvHabitaciones"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,7 @@
         app:srcCompat="@drawable/cardtexto" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/txtNombrePacienteHab"
         android:layout_width="341dp"
         android:layout_height="48dp"
         android:ems="10"
@@ -82,10 +82,10 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.355"
+        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.246" />
+        app:layout_constraintVertical_bias="0.247" />
 
     <EditText
         android:id="@+id/editTextText4"
@@ -129,19 +129,19 @@
         app:layout_constraintVertical_bias="0.325" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnAgregarHab"
         android:layout_width="112dp"
         android:layout_height="48dp"
         android:text="Agregar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView2"
+        android:id="@+id/rcvHabitaciones"
         android:layout_width="377dp"
         android:layout_height="317dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -151,7 +151,7 @@
         app:layout_constraintVertical_bias="0.995" />
 
     <Spinner
-        android:id="@+id/spinner8"
+        android:id="@+id/spnHabitaciones"
         android:layout_width="345dp"
         android:layout_height="49dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -160,5 +160,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4" />
+
+    <Button
+        android:id="@+id/btnActualizarHab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actualizar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.734"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
