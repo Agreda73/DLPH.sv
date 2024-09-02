@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "815188498950",
+    "project_id": "ptcperfil",
+    "storage_bucket": "ptcperfil.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815188498950:android:ef4797293717f19415c187",
+        "android_client_info": {
+          "package_name": "roberto.agreda.dlphsv"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5-FwItIyzSZWjgkPJm2JBlsOAw3Vry0Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

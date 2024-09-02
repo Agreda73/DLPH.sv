@@ -10,12 +10,12 @@
     app:cardElevation="5dp"
     app:cardUseCompatPadding="true"
     app:contentPadding="10dp"
-    tools:context=".MedicamentoCard">
+    tools:context=".Citas_card">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"/>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgmedi"
@@ -39,47 +39,28 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtNamem"
+                    android:id="@+id/txt_doc"
                     android:layout_width="172dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Nombre"
-                    android:textAlignment="center"
+                    android:gravity="right"
+                    android:text="Doc."
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtMarcam"
+                    android:id="@+id/txt_hora"
                     android:layout_width="171dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Marca"
-                    android:textAlignment="center" />
+                    android:layout_weight="2"
+                    android:gravity="right"
+                    android:text="Hora de cita"
+                    android:layout_marginStart="18dp" />
 
-                <TextView
-                    android:id="@+id/txtCantidadMedi"
-                    android:layout_width="172dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Cantidad"
-                    android:textAlignment="center" />
 
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/img_borrarH"
-                android:layout_width="64dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/delete" />
 
-            <ImageView
-                android:id="@+id/img_editarH"
-                android:layout_width="61dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.1"
-                app:srcCompat="@drawable/edit" />
-        </LinearLayout>
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
