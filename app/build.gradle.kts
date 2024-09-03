@@ -51,6 +51,8 @@ dependencies {
     implementation(files("libs\\activation.jar"))
     implementation(libs.firebase.common.ktx)
     implementation(libs.firebase.storage.ktx)
+    implementation(libs.filament.android)
+    implementation(libs.firebase.database.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

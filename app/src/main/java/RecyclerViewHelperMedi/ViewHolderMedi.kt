@@ -12,7 +12,7 @@ class ViewHolderMedi(view: View) : RecyclerView.ViewHolder(view) {
     val txtCantidadMedi = view.findViewById<TextView>(R.id.txtCantidadMedi)
     val imgBorrar = view.findViewById<ImageView>(R.id.img_borrar)
     val imgEditar = view.findViewById<ImageView>(R.id.img_editar)
-    val imgMedi = view.findViewById<ImageView>(R.id.imgMedi)
+    val imgMedi = view.findViewById<ImageView>(R.id.imgmedi)
 
 
 }
