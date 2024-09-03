@@ -78,7 +78,7 @@ class AdaptadorMedi (var Datos: List<INVENTARIO>): RecyclerView.Adapter<ViewHold
         holder.txtCantidadMedi.text = item.CANTIDAD.toString()
         holder.imgMedi.setImageResource(R.drawable.medicamento)
 
-        holder.imgBorrar.setOnClickListener {
+        holder.img_borrarH.setOnClickListener {
 
             val context = holder.itemView.context
             val builder = AlertDialog.Builder(context)
@@ -98,7 +98,7 @@ class AdaptadorMedi (var Datos: List<INVENTARIO>): RecyclerView.Adapter<ViewHold
             alertDialog.show()
 
         }
-        holder.imgEditar.setOnClickListener {
+        holder.img_editarH.setOnClickListener {
 
             val context = holder.itemView.context
 

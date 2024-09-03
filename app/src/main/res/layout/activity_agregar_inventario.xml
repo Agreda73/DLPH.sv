@@ -218,8 +218,8 @@
 
     <TextView
         android:id="@+id/txtSpinnerError"
-        android:layout_width="350dp"
-        android:layout_height="35dp"
+        android:layout_width="355dp"
+        android:layout_height="32dp"
         android:text="La cantidad es obligatoria"
         android:textColor="#E01C1C"
         android:visibility="invisible"
