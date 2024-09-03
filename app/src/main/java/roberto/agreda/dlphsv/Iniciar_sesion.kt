@@ -38,31 +38,7 @@ class Iniciar_sesion : AppCompatActivity() {
         val btnRecuperarContra= findViewById<Button>(R.id.btnOlvidarContra)
         val recuperarContra =Intent(this,activity_recuperarContrasena::class.java)
 
-        fun traerID(): String? {
-            var uuidRol: String? = null
-            val objConexion = ClaseConexion().cadenaConexion()
-            val statement = objConexion?.createStatement()
-            val resulSet =
-                statement?.executeQuery("SELECT ID_rol FROM rol WHERE nombre_rol = 'admin'")!!
 
-            if (resulSet.next()) {
-                uuidRol = resulSet.getString("ID_rol")
-            }
-            return uuidRol
-        }
-        CoroutineScope(Dispatchers.IO).launch {
-            val txtcorreoiniciarval = i.variablesLogin.valorRolUsuario
-            val RolUsuarioMainActivity = traerID()
-            withContext(Dispatchers.Main) {
-                if (txtcorreoiniciarval == RolUsuarioMainActivity) {
-                    binding..visibility = View.VISIBLE
-                    binding.btnDos.visibility = View.VISIBLE
-                } else {
-                    binding.btnUno.visibility = View.GONE
-                    binding.btnDos.visibility = View.GONE
-                }
-            }
-        }
 
         btnIniciar.setOnClickListener {
             val correo = txtCorreo.text.toString()
@@ -83,7 +59,7 @@ class Iniciar_sesion : AppCompatActivity() {
             GlobalScope.launch(Dispatchers.IO){
                 val objConexion = ClaseConexion().cadenaConexion()
                 val comprobarUsuario =
-                    objConexion?.prepareStatement("Select * from Usuario where nombre =? and contrasenaUsuario= ?")!!
+                    objConexion?.prepareStatement("Select * from Usuarios where nombre =? and contrasenaUsuario= ?")!!
                 comprobarUsuario.setString(1, txtCorreo.text.toString())
                 comprobarUsuario.setString(2, txtContra.text.toString())
                 val resultado = comprobarUsuario.executeQuery()

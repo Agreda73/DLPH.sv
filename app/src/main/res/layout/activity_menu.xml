@@ -247,7 +247,7 @@
         app:layout_constraintVertical_bias="0.701" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/btnReceta"
         android:layout_width="79dp"
         android:layout_height="82dp"
         android:scaleType="centerCrop"
