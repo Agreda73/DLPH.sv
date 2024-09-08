@@ -2,7 +2,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -39,6 +38,7 @@ android {
 
 dependencies {
 
+    implementation ("androidx.core:core-ktx:1.8.0")
     implementation("com.airbnb.android:lottie:6.4.1")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -50,18 +50,10 @@ dependencies {
     implementation(files("libs\\additionnal.jar"))
     implementation(files("libs\\mail.jar"))
     implementation(files("libs\\activation.jar"))
-    implementation(libs.firebase.common.ktx)
-    implementation(libs.firebase.storage.ktx)
-    implementation(libs.filament.android)
-    implementation(libs.firebase.database.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-=
-plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
-}
+
 
 android {
     namespace = "roberto.agreda.dlphsv"
@@ -114,4 +106,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+}
 }

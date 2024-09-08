@@ -18,9 +18,9 @@ import kotlinx.coroutines.withContext
 
 @OptIn(DelicateCoroutinesApi::class)
 class Iniciar_sesion : AppCompatActivity() {
-
+    lateinit var valorRolUsuario: String
     companion object variablesLogin {
-        lateinit var valorRolUsuario: String
+
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +37,6 @@ class Iniciar_sesion : AppCompatActivity() {
         val menu = Intent(this, Menu::class.java)
         val btnRecuperarContra= findViewById<Button>(R.id.btnOlvidarContra)
         val recuperarContra =Intent(this,activity_recuperarContrasena::class.java)
-
 
 
         btnIniciar.setOnClickListener {
@@ -63,10 +62,11 @@ class Iniciar_sesion : AppCompatActivity() {
                 comprobarUsuario.setString(1, txtCorreo.text.toString())
                 comprobarUsuario.setString(2, txtContra.text.toString())
                 val resultado = comprobarUsuario.executeQuery()
-
+                valorRolUsuario = resultado.getString("rollUsuario")
                 if (resultado.next()) {
-                    valorRolUsuario = resultado.getString("rol")
-                    startActivity(menu)
+                    valorRolUsuario = resultado.getString("rollUsuario")
+                    btnIniciar.setOnClickListener{
+                    startActivity(menu)}
                 } else {
                     println("credenciales incorrectas")
                 }

@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlinx.coroutines.CoroutineScope
@@ -27,23 +28,35 @@ class Menu : AppCompatActivity() {
             insets
         }
 
-        val btnhabitacion = findViewById<Button>(R.id.btnHabitacion)
-        val btnExpediente = findViewById<Button>(R.id.btnExpediente)
-        val btnHorario = findViewById<Button>(R.id.btnHorario)
-        val btnMedicamento = findViewById<Button>(R.id.btnMedicina)
-        val btnConsulta = findViewById<Button>(R.id.btnConsulta)
-        val btnReceta =findViewById<Button>(R.id.btnReceta)
+        val btPerfil = findViewById<AppCompatImageButton>(R.id.btnPefil)
+        val perfil =Intent(this,Perfil::class.java)
+        val btnVisita = findViewById<AppCompatImageButton>(R.id.btnVisita)
+        val visita =Intent(this,Citas::class.java)
+        val btnCerrarSesion = findViewById<AppCompatImageButton>(R.id.btnCerrarSesion)
+        val cerrarSesion =Intent(this,Iniciar_sesion::class.java)
+        val btnhabitacion = findViewById<AppCompatImageButton>(R.id.btnHabitacion)
+        val habitacion =Intent(this,HabitacionesVista::class.java)
+        val btnExpediente = findViewById<AppCompatImageButton>(R.id.btnExpediente)
+        val Expediente =Intent(this,Expediente::class.java)
+        val btnHorario = findViewById<AppCompatImageButton>(R.id.btnHorario)
+        val Horario =Intent(this,Horario::class.java)
+        val btnMedicamento = findViewById<AppCompatImageButton>(R.id.btnMedicina)
+        val medicamento  =Intent(this,InventarioMedicamento::class.java)
+        val btnConsulta = findViewById<AppCompatImageButton>(R.id.btnConsulta)
+        val consulta =Intent(this,Citas::class.java)
+        val btnReceta =findViewById<AppCompatImageButton>(R.id.btnReceta)
+        val receta =Intent(this,Receta::class.java)
 
-
+/**
         fun traerID(): String? {
             var uuidRol: String? = null
             val objConexion = ClaseConexion().cadenaConexion()
             val statement = objConexion?.createStatement()
             val resulSet =
-                statement?.executeQuery("SELECT ID_rol FROM rol WHERE nombre_rol = 'admin'")!!
+                statement?.executeQuery("SELECT id_rol FROM rol WHERE nombre_rol = 'admin'")!!
 
             if (resulSet.next()) {
-                uuidRol = resulSet.getString("ID_rol")
+                uuidRol = resulSet.getString("id_rol")
             }
             return uuidRol
         }
@@ -69,7 +82,33 @@ class Menu : AppCompatActivity() {
                     btnReceta.visibility = View.GONE
                 }
             }
-
+        **/
+            btPerfil.setOnClickListener{
+                startActivity(perfil)
+            }
+            btnVisita.setOnClickListener{
+                startActivity(visita)
+            }
+            btnCerrarSesion.setOnClickListener{
+                startActivity(cerrarSesion)
+            }
+            btnhabitacion.setOnClickListener{
+                startActivity(habitacion)
+            }
+            btnExpediente.setOnClickListener{
+                startActivity(Expediente)
+            }
+            btnHorario.setOnClickListener{
+                startActivity(Horario)
+            }
+            btnMedicamento.setOnClickListener{
+                startActivity(medicamento)
+            }
+            btnConsulta.setOnClickListener{
+                startActivity(consulta)
+            }
+            btnReceta.setOnClickListener{
+                startActivity(receta)
+            }
         }
     }
-}

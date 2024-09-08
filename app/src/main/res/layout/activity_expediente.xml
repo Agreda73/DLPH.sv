@@ -49,18 +49,6 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="33dp"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056"
-        app:srcCompat="@drawable/round_menu_24" />
-
-    <ImageView
         android:id="@+id/imageView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -104,5 +92,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.973" />
+
+    <ImageView
+        android:id="@+id/btnbackE"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.053"
+        app:srcCompat="@drawable/round_menu_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

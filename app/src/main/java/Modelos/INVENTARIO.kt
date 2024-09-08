@@ -5,5 +5,5 @@ data class INVENTARIO(
     var NOMBRE: String,
     var MARCA: String,
     var CANTIDAD: Int,
-    var FOTO_MEDICAMENTO: String
+    //var FOTO_MEDICAMENTO: String
 )

@@ -1,8 +1,10 @@
 package roberto.agreda.dlphsv
 
+import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.widget.CalendarView
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +25,13 @@ class Horario : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        val imgbackHo = findViewById<ImageView>(R.id.imgbackHo)
+        val Menu = Intent(this,Menu::class.java)
+
+        imgbackHo.setOnClickListener{
+            startActivity(Menu)
         }
 
         lblHoraEntrada = findViewById(R.id.lblHorarioEntrada)

@@ -7,18 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".HabitacionesVista">
 
-    <ImageView
-        android:id="@+id/imageView54"
-        android:layout_width="32dp"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.038"
-        app:srcCompat="@drawable/round_menu_24" />
-
     <TextView
         android:id="@+id/textView49"
         android:layout_width="wrap_content"
@@ -53,4 +41,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.58" />
+
+    <ImageView
+        android:id="@+id/imgbackH"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052"
+        app:srcCompat="@drawable/round_menu_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

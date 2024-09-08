@@ -2,7 +2,6 @@ package roberto.agreda.dlphsv
 
 import Modelos.ClaseConexion
 import Modelos.INVENTARIO
-import RecyclerViewHelperMedi.AdaptadorMedi
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -30,7 +29,7 @@ class InventarioMedicamento : AppCompatActivity() {
         }
         val btnAgregarInventario = findViewById<Button>(R.id.btnAgregarInve)
         val rcvItems = findViewById<RecyclerView>(R.id.rcvItems)
-        val immenuInve = findViewById<ImageView>(R.id.immenuInve)
+       // val immenuInve = findViewById<ImageView>(R.id.immenuInve)
         rcvItems.layoutManager= LinearLayoutManager(this)
         //falta agregar codigo de regresar al menu principal
 
@@ -42,32 +41,24 @@ class InventarioMedicamento : AppCompatActivity() {
 
             objConexion?.use { connection ->
             val statement = objConexion?.createStatement()
-            val resultSet = statement?.executeQuery("SELECT * FROM Inventario")
+            val resultSet = statement?.executeQuery("SELECT * FROM medicamento")
 
                 resultSet.use { resultSet ->
             while (resultSet!!.next()) {
-                val uuidInventario = resultSet.getString("UUID_INVENTARIO")
+                val uuidInventario = resultSet.getString("id_medicamento")
                 val nombre = resultSet.getString("NOMBRE")
                 val marca = resultSet.getString("MARCA")
-                val cantidad = resultSet.getInt("CANTIDAD")
+                val cantidad = resultSet.getString("CANTIDAD")/*
                 val fotoMedicamento = resultSet.getString("FOTO_MEDICAMENTO")
 
                 val medicamento = INVENTARIO(uuidInventario, nombre, marca, cantidad, fotoMedicamento)
-                listaMedicamentos.add(medicamento)
+                listaMedicamentos.add(medicamento)*/
             }
                 }
                 }
             return listaMedicamentos
         }
 
-        CoroutineScope(Dispatchers.IO).launch {
-            val listaMedicamentos = cargarDatos()
-            withContext(Dispatchers.Main) {
-                val adapter = AdaptadorMedi(listaMedicamentos)
-                rcvItems.adapter = adapter
-
-            }
-        }
 
         btnAgregarInventario.setOnClickListener {
             val intent = Intent(this, AgregarInventario::class.java)

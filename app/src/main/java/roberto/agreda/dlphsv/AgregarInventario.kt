@@ -1,6 +1,7 @@
 package roberto.agreda.dlphsv
 
 import Modelos.ClaseConexion
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -30,20 +31,21 @@ import java.sql.Connection
 import java.util.UUID
 
 class AgregarInventario : AppCompatActivity() {
-    val codigo_opcion_galeria = 5
+   /* val codigo_opcion_galeria = 5
     val codigo_opcion_tomar_foto = 6
     val CAMARA_REQUEST_CODE = 0
-    val STORAGE_REQUEST_CODE = 1
+    val STORAGE_REQUEST_CODE = 1*/
 
-    lateinit var imageView: ImageView
-    lateinit var miPath: String
-    lateinit var txtNombreMedi: EditText
+    //lateinit var imageView: ImageView
+   // lateinit var miPath: String
+   lateinit var txtNombreMedi : EditText
     lateinit var txtMarcaMedi: EditText
-    lateinit var spnMedicamento: Spinner
+    lateinit var txtCantidad: EditText
 
-    val uuid = UUID.randomUUID().toString()
+  //  val uuid = UUID.randomUUID().toString()
 
 
+   @SuppressLint("WrongViewCast")
    override fun onCreate(savedInstanceState: Bundle?) {
      super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -53,24 +55,28 @@ class AgregarInventario : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-       imageView = findViewById(R.id.imgmedi)
+       //imageView = findViewById(R.id.imgmedi)
         val imgmenuIn = findViewById<ImageView>(R.id.imgmenuIn)
+       val menu =Intent(this,Menu::class.java)
         val btnTomarFotoMedi = findViewById<Button>(R.id.btnTomarFotoMedi)
         val btnSubirFotoMedi = findViewById<Button>(R.id.btnSubirFotoMedi)
         val txtNombreMedi = findViewById<EditText>(R.id.txtNombreMedi)
         val txtMarcaMedi = findViewById<EditText>(R.id.txtMarcaMedi)
-        val spnMedicamento = findViewById<Spinner>(R.id.spnCantidadMedi)
+        val txtCantidad = findViewById<EditText>(R.id.txtCantidad)
         val btnAgregarMedi = findViewById<Button>(R.id.btnAgregarMedi)
-        val txtSpinnerError = findViewById<TextView>(R.id.txtSpinnerError)
 
-       btnSubirFotoMedi.setOnClickListener {
+
+       imgmenuIn.setOnClickListener{
+           startActivity(menu)
+       }
+       /*btnSubirFotoMedi.setOnClickListener {
            checkStoragePermission()
 
        }
 
        btnTomarFotoMedi.setOnClickListener {
            checkCameraPermission()
-       }
+       }*/
        btnAgregarMedi.setOnClickListener {
        var hayError = false
        if (txtNombreMedi.text.toString().isEmpty()) {
@@ -85,12 +91,12 @@ class AgregarInventario : AppCompatActivity() {
        } else {
            txtMarcaMedi.error = null
        }
-       if (spnMedicamento.selectedItem == null || spnMedicamento.selectedItem.toString().isEmpty()) {
-           txtSpinnerError.visibility = TextView.VISIBLE
-           hayError = true
-       } else {
-           txtSpinnerError.visibility = TextView.GONE
-       }
+           if (txtCantidad.text.toString().isEmpty()) {
+               txtCantidad.error = "La cantidad es obligatoria"
+               hayError = true
+           } else {
+               txtMarcaMedi.error = null
+           }
        if (!hayError) {
            CoroutineScope(Dispatchers.IO).launch {
                val exito = guardarCambios()
@@ -109,27 +115,48 @@ class AgregarInventario : AppCompatActivity() {
        }
       }
    }
+    private fun guardarCambios(): Boolean {
+        return try {
+            val connection: Connection? = ClaseConexion().cadenaConexion()
+            if (connection != null) {
+                val agregamedicamento= "insert into medicamento(nombre,marca,cantidad)values(?,?,?)"
+                val addMedicamento = connection.prepareStatement(agregamedicamento)
+                addMedicamento.setString(1, txtNombreMedi.text.toString())
+                addMedicamento.setString(2, txtMarcaMedi.text.toString())
+                addMedicamento.setString(3, txtCantidad.text.toString())
+                addMedicamento.executeUpdate()
+                addMedicamento.close()
+                connection.close()
+                true
+            } else {
+                false
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+            false
+        }
+    }
 
-       private fun checkCameraPermission() {
+       /*private fun checkCameraPermission() {
            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                pedirPermisoCamara()
            } else {
                val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                startActivityForResult(intent,codigo_opcion_tomar_foto)
            }
-       }
+       }*/
 
-       private fun checkStoragePermission() {
-           if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-               pedirPermisoAlmacenamiento()
-           } else {
+       //private fun checkStoragePermission() {
+         //  if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+           //    pedirPermisoAlmacenamiento()
+           //} else {
 
-               val intent = Intent(Intent.ACTION_PICK)
-               intent.type = "image/*"
-               startActivityForResult(intent, codigo_opcion_galeria)
-           }
+               //val intent = Intent(Intent.ACTION_PICK)
+         //      intent.type = "image/*"
+           //    startActivityForResult(intent, codigo_opcion_galeria)
+           //}
        }
-    private fun pedirPermisoCamara(){
+    /*private fun pedirPermisoCamara(){
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,android.Manifest.permission.CAMERA)
         ) {
         } else {
@@ -137,69 +164,69 @@ class AgregarInventario : AppCompatActivity() {
 
         }
 
-    }
+    }*/
 
-    private fun pedirPermisoAlmacenamiento(){
+    /*private fun pedirPermisoAlmacenamiento(){
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,android.Manifest.permission.READ_EXTERNAL_STORAGE)) {
 
         } else{
 
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),STORAGE_REQUEST_CODE)
         }
-    }
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array< String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when (requestCode) {
-            CAMARA_REQUEST_CODE -> {
-                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                    startActivityForResult(intent, codigo_opcion_tomar_foto)
-                } else {
-                    Toast.makeText(this, "Permiso de cámara denegado", Toast.LENGTH_SHORT).show()
-                }
-                return
-            }
+    }*/
+     //override fun onRequestPermissionsResult(
+      //  requestCode: Int,
+     //   permissions: Array< String>,
+       // grantResults: IntArray
+//    ) {
+    //    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+      //  when (requestCode) {
+        //    CAMARA_REQUEST_CODE -> {
+          //      if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+            //        val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+              //      startActivityForResult(intent, codigo_opcion_tomar_foto)
+                // } else {
+          //          Toast.makeText(this, "Permiso de cámara denegado", Toast.LENGTH_SHORT).show()
+            //    }
+              //  return
+           // }
 
-            STORAGE_REQUEST_CODE -> {
-                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    val intent = Intent(Intent.ACTION_PICK)
-                    intent.type = "image/*"
-                    startActivityForResult(intent, codigo_opcion_galeria)
-                } else {
-                    Toast.makeText(this, "Permiso de almacenamiento denegado", Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
+      //      STORAGE_REQUEST_CODE -> {
+            //    if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+        //            val intent = Intent(Intent.ACTION_PICK)
+          //          intent.type = "image/*"
+            //        startActivityForResult(intent, codigo_opcion_galeria)
+              //  } else {
+                //    Toast.makeText(this, "Permiso de almacenamiento denegado", Toast.LENGTH_SHORT)
+                  //      .show()
+   //             }
+     //       }
 
-            else -> {
+       //     else -> {
 
-            }
+       //     }
+//
+  //      }
 
-        }
+//    }*/
+  //  override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    //    super.onActivityResult(requestCode, resultCode, data)
+      //  if (requestCode == Activity.RESULT_OK) {
+        //    when (requestCode) {
+//
+  //              codigo_opcion_galeria -> {
+    //                val imageUri: Uri? = data?.data
+      //             imageUri.let {
+       //                val imagenBitmap =
+        //                    MediaStore.Images.Media.getBitmap(contentResolver, it)
+          //              subirimagenFirebase(imagenBitmap) { url ->
+            //                miPath = url
+              //              imageView.setImageURI(it)
+                //        }
+                  //  }
+           //     }
 
-    }
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == Activity.RESULT_OK) {
-            when (requestCode) {
-
-                codigo_opcion_galeria -> {
-                    val imageUri: Uri? = data?.data
-                    imageUri.let {
-                        val imagenBitmap =
-                            MediaStore.Images.Media.getBitmap(contentResolver, it)
-                        subirimagenFirebase(imagenBitmap) { url ->
-                            miPath = url
-                            imageView.setImageURI(it)
-                        }
-                    }
-                }
-
-                codigo_opcion_tomar_foto -> {
+               /* codigo_opcion_tomar_foto -> {
                     val imageBitmap = data?.extras?.get("data") as? Bitmap
                     imageBitmap?.let {
                         subirimagenFirebase(it) { url ->
@@ -232,33 +259,11 @@ class AgregarInventario : AppCompatActivity() {
             }
         }
 
-    }
+    }*/
 
 
 
-    private fun guardarCambios(): Boolean {
-        return try {
-            val connection: Connection? = ClaseConexion().cadenaConexion()
-            if (connection != null) {
-                val agregamedicamento= "INSERT INTO Inventario(UUID_INVENTARIO, NOMBRE, MARCA, CANTIDAD, FOTO_MEDICAMENTO) VALUES (?, ?, ?, ?, ?)"
-                val addMedicamento = connection.prepareStatement(agregamedicamento)
-                addMedicamento.setString(1, txtNombreMedi.text.toString())
-                addMedicamento.setString(2, txtMarcaMedi.text.toString())
-                addMedicamento.setString(3, spnMedicamento.selectedItem.toString())
-                addMedicamento.setString(4, "")
-                addMedicamento.executeUpdate()
-                addMedicamento.close()
-                connection.close()
-                true
-            } else {
-                false
-            }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            false
-        }
-    }
-}
+
 
 
 

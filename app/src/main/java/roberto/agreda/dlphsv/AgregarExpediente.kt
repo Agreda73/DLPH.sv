@@ -1,7 +1,9 @@
 package roberto.agreda.dlphsv
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Spinner
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +21,13 @@ class AgregarExpediente : AppCompatActivity() {
             insets
 
         }
+        val imgmenuexp = findViewById<ImageView>(R.id.imgmenuexp)
+        val Expediente = Intent(this,Expediente::class.java)
+
+        imgmenuexp.setOnClickListener{
+            startActivity(Expediente)
+        }
+
         val txtAgregarExpediente = findViewById<EditText>(R.id.txtAgregarExpediente)
 
         if (txtAgregarExpediente.text.isEmpty() || txtAgregarExpediente.text.trim().isEmpty()) {

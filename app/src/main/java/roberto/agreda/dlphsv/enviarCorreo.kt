@@ -26,11 +26,8 @@ suspend fun enviarCorreo(receptor: String, sujeto: String, mensaje: String) = wi
                 return PasswordAuthentication("dlphcontac@gmail.com","trma nrfw jkcn gwtv")
             }
         })
-
-        // Hacemos el envío
         try {
             val message = MimeMessage(session).apply {
-                //Con que correo enviaré el mensaje
                 setFrom(InternetAddress("dlphcontac@gmail.com"))
                 addRecipient(Message.RecipientType.TO, InternetAddress(receptor))
                 subject = sujeto

@@ -1,9 +1,12 @@
 package roberto.agreda.dlphsv
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -13,11 +16,12 @@ import androidx.recyclerview.widget.RecyclerView
 class Citas : AppCompatActivity() {
 
 
-private val recyclerView: RecyclerView? = null
+private var recyclerView: RecyclerView? = null
 private val adaptadorCita: AdaptadorCita? = null
 private val citasList: MutableList<Cita> = mutableListOf() // Lista de citas
 
 
+@SuppressLint("MissingInflatedId")
 override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     enableEdgeToEdge()
@@ -26,11 +30,21 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     val mainView = findViewById<View>(R.id.main)
 
-    ViewCompat.setOnApplyWindowInsetsListener(mainView, ViewCompat.OnApplyWindowInsetsListener { v, insets ->
+    ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
         val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
         v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
         insets
-    })
+    }
+
+    val imgbackCi = findViewById<ImageView>(R.id.imgbackCi)
+    val Menu = Intent(this,Menu::class.java)
+
+
+    imgbackCi.setOnClickListener{
+        startActivity(Menu)
+    }
+
+
 
     recyclerView = findViewById(R.id.recyclerView)
 

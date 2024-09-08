@@ -8,7 +8,7 @@
     tools:context=".Citas">
 
     <ImageView
-        android:id="@+id/imageView40"
+        android:id="@+id/imgbackCi"
         android:layout_width="32dp"
         android:layout_height="28dp"
         app:layout_constraintBottom_toBottomOf="parent"

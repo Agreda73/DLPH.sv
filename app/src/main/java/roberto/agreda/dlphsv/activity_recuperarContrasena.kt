@@ -37,7 +37,7 @@ class activity_recuperarContrasena : AppCompatActivity() {
         btnEnviar.setOnClickListener {
             val correo = txtCorreoRe.text.toString()
             var hayError = false
-            if (!correo.matches(Regex("[a-zA-Z0-9._-]+@[a-z]+[.]+[a-z]+"))) {
+            if (!correo.matches(Regex("[a-z,A-Z,0-9._-]+@[a-z]+[.]+[a-z]+"))) {
                 txtCorreoRe.error = "El correo es obligatorio"
                 hayError = true
             } else {
@@ -46,7 +46,6 @@ class activity_recuperarContrasena : AppCompatActivity() {
             CoroutineScope(Dispatchers.Main).launch {
                 val codigoRecu = (100000..999999).random()
                 enviarCorreo(txtCorreoRe.text.toString(), "Recuperación de contraseña", "Su código de recuperación es: $codigoRecu")
-
 
             }
         }

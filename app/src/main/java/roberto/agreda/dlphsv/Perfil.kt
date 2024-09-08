@@ -10,12 +10,15 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageButton
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -39,7 +42,7 @@ class Perfil : AppCompatActivity() {
     lateinit var imageView: ImageView
     lateinit var miPath:String
     lateinit var lblnombrePerfil: String
-    lateinit var speolPerfil: String
+    lateinit var sprolPerfil: String
     lateinit var spgeneroPerfil: String
     lateinit var lblidPerfil: String
 
@@ -59,9 +62,17 @@ class Perfil : AppCompatActivity() {
         val btnGaleria = findViewById<Button>(R.id.btnSubirimg)
         val btnFoto = findViewById<Button>(R.id.btntomarFoto)
         val lblnombrePerfil = findViewById<TextView>(R.id.lblnombrePerfil)
+
+        val btnbackP = findViewById<ImageView>(R.id.btnbackP)
+        val Menu =Intent(this,Menu::class.java)
+
+
         //Falatan los dos spinner
         val lblidPerfil = findViewById<TextView>(R.id.lblidPerfil)
 
+        btnbackP.setOnClickListener{
+            startActivity(Menu)
+        }
 
         btnGaleria.setOnClickListener {
             checkStoragePermission()
@@ -212,7 +223,7 @@ class Perfil : AppCompatActivity() {
                 val objConexion = ClaseConexion().cadenaConexion()
                 val statement = objConexion?.prepareStatement("INSERT INTO Perfil (UUID, nombre, rol, FOTO_PERFIL, id_perfil, Sexo) VALUES (?, ?, ?, ?, ?, ? )")!!
                 statement.setString(1, uuid)
-                //statement.setString(2, imgView)
+                statement.setString(2, imageView.toString())
                 statement.executeUpdate()
                 withContext(Dispatchers.Main) {
                     Toast.makeText(this@Perfil, "Datos guardados", Toast.LENGTH_SHORT).show()
